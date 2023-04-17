@@ -1,0 +1,13 @@
+.container {
+    width: 90vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.container div {
+    margin: 1rem;
+
+}
