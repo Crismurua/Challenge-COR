@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import '../styles/Card.css'
 
-function Card({task, deleteTask}) {
+function Card({task, deleteTask, handleTaskUpdate}) {
     const [current, setCurrent] = useState(task)
 
     const handleInput = ({target: {name, value}}) => {
-        setCurrent({...current, [name] : value})
+        const updatedTask = { ...task, [name]: value };
+        handleTaskUpdate(updatedTask);
+        setCurrent(updatedTask)
     }
 
     return (

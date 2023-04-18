@@ -15,6 +15,11 @@ form{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+}
+
+.head select {
+    border-radius: 5px;
 }
 
 .head input{
@@ -33,6 +38,8 @@ form button{
     width: 10rem;
     align-self: center;
     background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 form button:hover{
@@ -53,4 +60,5 @@ input:hover{
 
 .head select:hover{
     border: 2px solid #ddd;
+    cursor: pointer;
 }
