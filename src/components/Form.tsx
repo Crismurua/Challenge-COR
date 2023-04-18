@@ -22,7 +22,7 @@ function Form({newTask}) {
     }
 
     return (
-        <>
+        <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <div className="head">
                     <input type="text"
@@ -47,7 +47,7 @@ function Form({newTask}) {
                         <option value="Finalizada">Finalizada</option>
                     </select>
                 </div>
-                <input type="text"
+                <textarea
                         className="description"
                         placeholder="Descripcion"
                         name="description"
@@ -57,7 +57,7 @@ function Form({newTask}) {
                          />
                 <button>Crear Tarea</button>
             </form>
-        </>
+        </div>
     )
 }
 

@@ -27,13 +27,33 @@ function List({tasks, deleteTask}) {
       };
 
     return (
+        <>
+        <div className="filters">
+            <h3>Filtrar por</h3>
+            <label>Estado: </label>
+            <select id="state-filter" value={stateFilter} onChange={handleStateFilterChange}>
+              <option value="Todos">Todos</option>
+              <option value="Nueva">Nueva</option>
+              <option value="En Proceso">En Proceso</option>
+              <option value="Finalizada">Finalizada</option>
+            </select>
+
+            <label>Prioridad: </label>
+            <select id="priority-filter" value={priorityFilter} onChange={handlePriorityFilterChange}>
+              <option value="Todos">Todos</option>
+              <option value="Baja">Baja</option>
+              <option value="Media">Media</option>
+              <option value="Alta">Alta</option>
+            </select>
+      </div>
         <div className="list">
-        {tasks.map(t => (
+        {filteredTasks.map(t => (
             <div key={t.id}>
                 <Card key={t.id} task={t} deleteTask={deleteTask}/>
             </div>
         ))}
         </div>
+        </>
     )
 }
 

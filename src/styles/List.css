@@ -5,3 +5,12 @@
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     
 }
+
+.filters select{
+    margin: 1rem;
+}
+
+.filters select:hover{
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
