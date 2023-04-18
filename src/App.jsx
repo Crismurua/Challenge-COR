@@ -9,9 +9,27 @@ function App() {
 
   const getDate = () => new Date().getTime();
 
-  const newTask = (task) =>  setTasks([...tasks, {...task, id:getDate()}]);
+  const newTask = (task) =>  {
+    const newTask = { ...task, id: getDate() };
+    setTasks([...tasks, newTask]);
+    localStorage.setItem(newTask.id, JSON.stringify(newTask));
+  };
 
-  const deleteTask = (id) => setTasks(tasks.filter(task => task.id !== id));
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+    localStorage.removeItem(id);
+  };
+
+  const updateTask = (id, updatedFields) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, ...updatedFields };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+    localStorage.setItem(id, JSON.stringify(updatedTasks.find((task) => task.id === id)));
+  };
 
   return (
     <div className='container'>
@@ -20,7 +38,7 @@ function App() {
       </div>
 
       <div>
-        <List tasks={tasks} deleteTask={deleteTask} />
+        <List tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
       </div>
     </div>
   )

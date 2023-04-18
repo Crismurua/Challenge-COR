@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import Card from "./Card";
 import '../styles/List.css'
 
-function List({tasks, deleteTask}) {
+function List({tasks, deleteTask, updateTask}) {
     const [stateFilter, setStateFilter] = useState('Todos');
     const [priorityFilter, setPriorityFilter] = useState('Todos');
     const [currentPage, setCurrentPage] = useState(0);
@@ -20,17 +20,7 @@ function List({tasks, deleteTask}) {
           return t.state === stateFilter && t.priority === priorityFilter;
         }
       });
-
-      const [updateTask, setUpdateTask] = useState(filteredTasks); 
       
-      const handleTaskUpdate = (updatedTask) => {
-        setUpdateTask(prevTasks => {
-          const taskIndex = prevTasks.findIndex(task => task.id === updatedTask.id);
-          const updatedTasksCopy = [...prevTasks];
-          updatedTasksCopy[taskIndex] = updatedTask;
-          return updatedTasksCopy;
-        });
-      }
 
       const handleStateFilterChange = e => {
         setStateFilter(e.target.value);
@@ -76,9 +66,9 @@ function List({tasks, deleteTask}) {
       </div>
 
         <div className="list">
-        {filteredTasks.slice(currentPage * tasksPerPage, (currentPage + 1) * tasksPerPage).map((t, index) => (
-            <div key={index}>
-                <Card key={t.id} task={t} deleteTask={deleteTask} handleTaskUpdate={handleTaskUpdate}/>
+        {filteredTasks.slice(currentPage * tasksPerPage, (currentPage + 1) * tasksPerPage).map((t) => (
+            <div key={t.id}>
+                <Card key={t.id} task={t} deleteTask={deleteTask} updateTask={updateTask}/>
             </div>
         ))}
         </div>

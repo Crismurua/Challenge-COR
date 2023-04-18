@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import '../styles/Card.css'
 
-function Card({task, deleteTask, handleTaskUpdate}) {
-    const [current, setCurrent] = useState(task)
+function Card({task, deleteTask, updateTask}) {
 
-    const handleInput = ({target: {name, value}}) => {
-        const updatedTask = { ...task, [name]: value };
-        handleTaskUpdate(updatedTask);
-        setCurrent(updatedTask)
+    const handleInput = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const updatedFields = { [field]: value };
+        updateTask(task.id, updatedFields);   
     }
 
     return (
