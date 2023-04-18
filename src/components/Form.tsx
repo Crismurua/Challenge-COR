@@ -33,14 +33,14 @@ function Form({newTask}) {
                             required
                              />
 
-                    <select name="priority" value={task.priority} onChange={handleInput} required>
+                    <select data-testid='priority' name="priority" value={task.priority} onChange={handleInput} required>
                         <option hidden selected>Prioridad</option>
                         <option value="Baja">Baja</option>
                         <option value="Media">Media</option>
                         <option value="Alta">Alta</option>
                     </select>
 
-                    <select name="state" value={task.state} onChange={handleInput} required>
+                    <select data-testid='state' name="state" value={task.state} onChange={handleInput} required>
                         <option hidden selected>Estado</option>
                         <option value="Nueva">Nueva</option>
                         <option value="En Proceso">En Proceso</option>

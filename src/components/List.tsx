@@ -41,7 +41,7 @@ function List({tasks, deleteTask, updateTask}) {
         <div className="filters">
             <h3>Filtrar por</h3>
             <label>Estado: </label>
-            <select id="state-filter" value={stateFilter} onChange={handleStateFilterChange}>
+            <select data-testid='state' id="state-filter" value={stateFilter} onChange={handleStateFilterChange}>
               <option value="Todos">Todos</option>
               <option value="Nueva">Nueva</option>
               <option value="En Proceso">En Proceso</option>
@@ -49,7 +49,7 @@ function List({tasks, deleteTask, updateTask}) {
             </select>
 
             <label>Prioridad: </label>
-            <select id="priority-filter" value={priorityFilter} onChange={handlePriorityFilterChange}>
+            <select data-testid='priority' id="priority-filter" value={priorityFilter} onChange={handlePriorityFilterChange}>
               <option value="Todos">Todos</option>
               <option value="Baja">Baja</option>
               <option value="Media">Media</option>
@@ -67,7 +67,7 @@ function List({tasks, deleteTask, updateTask}) {
 
         <div className="list">
         {filteredTasks.slice(currentPage * tasksPerPage, (currentPage + 1) * tasksPerPage).map((t) => (
-            <div key={t.id}>
+            <div data-testid='card' key={t.id}>
                 <Card key={t.id} task={t} deleteTask={deleteTask} updateTask={updateTask}/>
             </div>
         ))}
