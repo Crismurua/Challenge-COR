@@ -6,3 +6,8 @@
 - Boton de eliminacion de cada tarea
 - Selects de actualizacion de prioridad y estado para cada tarea
 - Testing de funcionalidades de creacion de tareas y el filtrado de las mismas
+
+# Para ejecutar el proyecto
+- clonar repositorio con el link correspondiente desde una consola (git@github.com:Crismurua/Challenge-COR.git)
+- npm install para instalar las dependencias correspondientes
+- npm run dev para levantar el localhost
