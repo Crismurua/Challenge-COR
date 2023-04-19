@@ -39,12 +39,34 @@
     color: #fff;
   }
 
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+
 .filters select{
     margin: 1rem;
     border-radius: 5px;
+    height: 2rem;
 }
 
 .filters select:hover{
     border: 2px solid #ddd;
     cursor: pointer;
+}
+
+.filters input {
+  width: 20rem;
+  margin-left: 2rem;
+  height: 2rem;
+}
+
+h3{
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
